@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>英語読み上げ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="reader" aria-labelledby="app-title">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">Text to Speech</p>
+            <h1 id="app-title">英語読み上げ</h1>
+          </div>
+          <output id="speedValue" class="speed-badge" for="speed">1.0x</output>
+        </div>
+
+        <label class="input-label" for="textInput">読み上げるテキスト</label>
+        <textarea
+          id="textInput"
+          spellcheck="true"
+          placeholder="ここに英文を貼り付けてください。"
+        ></textarea>
+
+        <div class="line-panel">
+          <div class="panel-title-row">
+            <h2>行ごとの読み上げ</h2>
+            <span id="lineCount">0行</span>
+          </div>
+          <div id="lineList" class="line-list" aria-live="polite">
+            <p class="empty-lines">テキストを貼り付けると、ここに行ごとに表示されます。</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="playButton" class="primary" type="button">再生</button>
+          <button id="pauseButton" type="button">一時停止</button>
+          <button id="resumeButton" type="button">再開</button>
+          <button id="stopButton" type="button">停止</button>
+        </div>
+
+        <div class="voice-block">
+          <label for="voiceSelect">声を選択</label>
+          <select id="voiceSelect">
+            <option value="">音声を読み込み中...</option>
+          </select>
+        </div>
+
+        <div class="slider-block">
+          <label for="speed">再生速度</label>
+          <input
+            id="speed"
+            type="range"
+            min="0.5"
+            max="2"
+            step="0.01"
+            value="1"
+          />
+          <div class="range-labels" aria-hidden="true">
+            <span>0.5x</span>
+            <span>1.0x</span>
+            <span>2.0x</span>
+          </div>
+        </div>
+
+        <p id="status" class="status" role="status">テキストを貼り付けて再生できます。</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
