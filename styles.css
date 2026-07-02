@@ -113,7 +113,8 @@ textarea:focus {
   box-shadow: 0 0 0 4px rgba(35, 108, 85, 0.13);
 }
 
-.line-panel {
+.line-panel,
+.history-panel {
   margin-top: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -143,8 +144,26 @@ textarea:focus {
   font-weight: 700;
 }
 
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-actions button {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 0.84rem;
+}
+
 .line-list {
   max-height: 270px;
+  overflow: auto;
+  padding: 8px;
+}
+
+.history-list {
+  max-height: 230px;
   overflow: auto;
   padding: 8px;
 }
@@ -198,6 +217,56 @@ textarea:focus {
   line-height: 1.55;
 }
 
+.history-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.history-item:last-child {
+  border-bottom: 0;
+}
+
+.history-load {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.history-load:hover,
+.history-load:focus-visible {
+  background: transparent;
+  outline: none;
+}
+
+.history-title {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.history-delete {
+  min-height: 36px;
+  width: 36px;
+  padding: 0;
+  justify-self: end;
+}
+
 .controls {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -240,6 +309,12 @@ button.primary:hover {
 
 .voice-block {
   margin-bottom: 20px;
+}
+
+.voice-select-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px 88px;
+  gap: 10px;
 }
 
 select {
@@ -303,5 +378,19 @@ input[type="range"] {
 
   textarea {
     min-height: 230px;
+  }
+
+  .voice-select-row {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .panel-actions {
+    width: 100%;
+    flex-wrap: wrap;
   }
 }

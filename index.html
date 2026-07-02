@@ -24,6 +24,20 @@
           placeholder="ここに英文を貼り付けてください。"
         ></textarea>
 
+        <div class="history-panel">
+          <div class="panel-title-row">
+            <h2>復習履歴</h2>
+            <div class="panel-actions">
+              <span id="historyCount">0件</span>
+              <button id="saveHistoryButton" type="button">保存</button>
+              <button id="clearHistoryButton" type="button">全削除</button>
+            </div>
+          </div>
+          <div id="historyList" class="history-list" aria-live="polite">
+            <p class="empty-lines">保存した英文がここに表示されます。</p>
+          </div>
+        </div>
+
         <div class="line-panel">
           <div class="panel-title-row">
             <h2>行ごとの読み上げ</h2>
@@ -43,9 +57,13 @@
 
         <div class="voice-block">
           <label for="voiceSelect">声を選択</label>
-          <select id="voiceSelect">
-            <option value="">音声を読み込み中...</option>
-          </select>
+          <div class="voice-select-row">
+            <select id="voiceSelect">
+              <option value="">音声を読み込み中...</option>
+            </select>
+            <button id="voiceTestButton" type="button">試聴</button>
+            <button id="voiceRefreshButton" type="button">再取得</button>
+          </div>
         </div>
 
         <div class="slider-block">
